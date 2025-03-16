@@ -10,7 +10,6 @@ router = DefaultRouter()
 router.register(r'departments', DepartmentViewSet)
 router.register(r'employees', EmployeeViewSet)
 
-# urlpatterns = router.urls
 urlpatterns = [
     path('', include(router.urls)),
     path('token/generate/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
