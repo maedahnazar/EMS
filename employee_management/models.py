@@ -1,6 +1,9 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+from .manager import EmployeeManager
+
+
 class Department(models.Model):
     name = models.CharField(max_length=255)
 
@@ -15,6 +18,8 @@ class Employee(AbstractUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
+
+    objects = EmployeeManager()
 
     def _str_(self):
         return self.email
